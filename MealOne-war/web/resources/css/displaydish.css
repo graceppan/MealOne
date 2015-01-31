@@ -1,0 +1,13 @@
+.image{
+    float:left;
+    margin-top: 50px;
+    margin-left: 150px;
+    margin-right:20px;
+}
+.preformatted {
+    white-space: pre-wrap;
+}
+.msg{
+    float:left;
+    margin-top: 130px;
+}

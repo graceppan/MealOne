@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <title>Meal One</title>
+        <link href="resources/css/homepage.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <ui:composition template="/templates/guestLayout.xhtml">
+            <ui:define name="windowTitle">
+                Welcome to MealOne
+            </ui:define>
+
+            <ui:define name="heading">
+                <ui:include src="/sections/guestHeader.xhtml"/> 
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <div class="panelgrid">
+                        <h:panelGrid id="resourcePanel" columns="6" rules="all">
+                            <c:forEach var="res" items="#{displayImageMB.dishes}" id="row">
+                                    <h:panelGrid columns="1" rules="none" class="column" >
+                                        <h:graphicImage
+                                            value="/tmpfiles/#{res.image}"
+                                            style="width:180px;" />
+                                        <h:commandLink value="#{res.name}" action="#{displayImageMB.displayDish(res.id)}"/>
+                                    </h:panelGrid>
+                            </c:forEach>
+                        </h:panelGrid>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

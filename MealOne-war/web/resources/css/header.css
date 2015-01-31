@@ -1,0 +1,41 @@
+.head h1{
+    color:#000;
+    background-color: darkred;
+    height: 150px;
+    text-align: left;
+    font-style: italic;
+    font-size: 4em;
+    padding-left: 25px;
+    padding-top: 15px;
+    opacity:0.9;
+}
+.bar{
+    position:relative;
+}
+/*.buttonleft{
+    position:absolute;
+    bottom: 8px;
+    left: 8px;
+    float:left;
+}*/
+
+.button{
+    position: absolute;
+    bottom: 8px;
+    left: 35%;
+}
+.button #contact{
+    margin-left: 8px;
+    font-size: 5px;
+    color: infobackground;
+}
+body{
+    background-color:white;
+}
+.right{
+    position: absolute;
+    right:8px;
+    top:160px;
+}
+
+

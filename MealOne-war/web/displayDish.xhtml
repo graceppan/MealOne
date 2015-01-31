@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="resources/css/displaydish.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/layout.xhtml">
+            <ui:define name="windowTitle">
+                Welcome to MealOne
+            </ui:define>
+
+            <ui:define name="heading">
+                <ui:include src="/sections/header.xhtml"/> 
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="order">
+                    <h:graphicImage class="image" value="/tmpfiles/#{displayImageMB.dish.image}" width="300px"/>
+                    <div class="msg">
+                        <h:panelGrid columns="2">
+                            <h4>Name: </h4><h:outputText value="#{displayImageMB.dish.name}" />
+                            <h4>Description: </h4><h:outputText value="#{displayImageMB.dish.description}" styleClass="preformatted" />  
+                        </h:panelGrid>
+                        <h:form  rendered="#{makeOrderMB.category(displayImageMB.dish.id)==null}">
+                            <h:panelGrid columns="2">
+                            <h4>Size: </h4><h:selectOneMenu value="#{makeOrderMB.size}">
+                                <f:selectItem itemValue="Extra large" itemLabel="Extra large----- $18" />
+                                <f:selectItem itemValue="Large" itemLabel="Large----- $14" />
+                            </h:selectOneMenu>
+                            </h:panelGrid>
+                        </h:form>
+                        <h:panelGrid columns="3">
+                            <h4>Select date: </h4>
+                            <p:calendar  value="#{makeOrderMB.orderDate}" mode="inline">
+                                <p:ajax event="dateSelect" update="selection"/>
+                            </p:calendar>
+                            <h:outputText value="#{makeOrderMB.orderDay}" id="selection"/>           
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h4>Qty: </h4>
+                            <h:selectOneMenu value="#{makeOrderMB.qty}">
+                                <f:selectItem itemValue="1" itemLabel="1" />
+                                <f:selectItem itemValue="2" itemLabel="2" />
+                                <f:selectItem itemValue="3" itemLabel="3" />
+                                <f:selectItem itemValue="4" itemLabel="4" />
+                                <f:selectItem itemValue="5" itemLabel="5" />
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:message for="order"  infoStyle="color:darkgreen" errorStyle="color:darkred"/>
+                        <h:commandButton value="Place Order" action="#{makeOrderMB.makeOrder(displayImageMB.dish.id)}"/>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

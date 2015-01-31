@@ -1,0 +1,13 @@
+.panelgrid{
+    margin-top: 7%;
+    margin-left: 5.5%;
+    margin-right: 5%;
+    border: #999999 solid thin;
+}
+
+.column{
+    margin:8px;
+    text-align: center;
+}
+
+

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="resources/css/displaydish.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/layout.xhtml">
+            <ui:define name="windowTitle">
+                Welcome to MealOne
+            </ui:define>
+
+            <ui:define name="heading">
+                <ui:include src="/sections/header.xhtml"/> 
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <table id="table">
+                        <tr>
+                            <td class="reqInfo">Name:</td>
+                            <td>
+                                <h:inputText
+                                    id="name" value="#{dishMB.dish.name}"
+                                    required="true"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="reqInfo">Description:</td>
+                            <td>
+                                <h:inputTextarea
+                                    id="desc" value="#{dishMB.dish.description}"
+                                    required="true"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="reqInfo">Category:</td>
+                            <td>
+                                <h:selectOneMenu value="#{dishMB.dish.category}">
+                                    <f:selectItem itemValue="Pizza" itemLabel="Pizza" />
+                                    <f:selectItem itemValue="Chinese dish" itemLabel="Chinese dish" />
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+                    </table>
+                    <h:commandButton value="add image" action="uploadFile?faces-redirect=true"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
+

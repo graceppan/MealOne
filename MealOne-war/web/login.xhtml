@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="resources/css/displaydish.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/layout.xhtml">
+            <ui:define name="windowTitle">
+                Welcome to MealOne
+            </ui:define>
+
+            <ui:define name="heading">
+                <ui:include src="/sections/header.xhtml"/> 
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="login">
+                    <h:message for="login"  infoStyle="color:darkgreen" errorStyle="color:darkred"/>
+                    <h:panelGrid columns="2" >
+                        E-mail:
+                        <h:inputText id="popup" value="#{loginMB.email}"/>
+                        password:
+                        <h:inputSecret value="#{loginMB.password}" />     
+                    </h:panelGrid>
+
+                    <h:commandButton value="Log in" action="#{loginMB.login}" />
+                    <h:commandButton value="Sign up" action="customerSignup?faces-redirect=true" />
+                    <h:commandButton value="Home Page" action="index?faces-redirect=true" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

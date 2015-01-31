@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>MealOne</title>
+        <link href="resources/css/js-image-slider.css" rel="stylesheet" type="text/css" />
+        <script src="resources/js/js-image-slider.js" type="text/javascript"></script>
+        <link href="resources/css/generic.css" rel="stylesheet" type="text/css" />
+        <link href="resources/css/header.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form>
+                <div class="bar">
+                    <div class="head">
+                        <h1>   Meal One</h1>
+                    </div>
+                    <div class="button">  
+                        <!--                        <h:commandButton value="Profile" action="/adminProfile" />
+                                                <h:commandButton value="View Faculty" action="/adminViewFaculty" />
+                                                <h:commandButton value="View Class" action="/adminViewClass" />
+                                                <h:commandButton value="View Semester" action="/adminViewSemester" />
+                                                <h:commandButton value="Log out" action="#{adminMB.logout}" />-->
+                        <h2 id="contact"> Tel: 319-400-6824   Wechat:</h2> 
+                        <img src="images/QRcode.jpg" width="70px" height="70px"/>
+                    </div>
+                </div>
+                <div class="right">
+                    <ui:fragment rendered="#{checkSessionMB.session!=null}">
+                        <h:commandLink value="Welcome" style="margin-right:8px;"/> 
+                    </ui:fragment>
+                    <ui:fragment rendered="#{checkSessionMB.session==null}">
+                        <h:commandLink value="Login" style="margin-right:8px;" action="/login"/> 
+                    </ui:fragment>
+                    <ui:fragment rendered="#{checkSessionMB.session==null}">
+                        <h:commandLink value="Signup" style="margin-right:8px;"/> 
+                    </ui:fragment>
+                    <ui:fragment rendered="#{checkSessionMB.session!=null}"> 
+                        <h:commandLink action="#{logoutMB.logout}" value="Logout" style="margin-right:8px;"/>
+                    </ui:fragment> 
+                    <h:commandButton value="Checkout" image="images/checkout.jpg" style="width:70px; margin-right:8px;"/>
+                </div>
+                <div id="sliderFrame">
+                    <div id="slider">
+                        <img src="images/slide-dumpling.jpg" alt="Enjoy the yummy Chinese food at MealOne" width="700px" height="306px" />
+                        <img src="images/slide-set.jpg" alt="Get the nutritious rice set" width="700px" height="306px"/>
+                        <img src="images/slide-homemadepizza.JPG" alt="Miss the homemade pizza? Choose MealOne" width="700px" height="306px" />
+                        <img src="images/slide-vegiepizza.jpg" alt="Vegie pizza is also available!" width="700px" height="306px"/>
+                        <img src="images/slide-menu.JPG" alt="See more at MealOne" width="700px" height="306px"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+
